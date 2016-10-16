@@ -7,5 +7,7 @@ defmodule Hungry.Router do
 
   scope "/api", Hungry do
     pipe_through :api
+
+    post "/reservation", ReservationController, :create
   end
 end
