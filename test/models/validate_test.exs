@@ -1,6 +1,5 @@
 defmodule Hungry.ValidateTest do
   use Hungry.ModelCase
-  use Timex
 
   alias Hungry.{ReservationRendition, Validate}
 
@@ -35,6 +34,21 @@ defmodule Hungry.ValidateTest do
           quantity: 4
         }
       }
+
+      assert expected == actual
+    end
+
+    test "returns correct result on invalid date" do
+      rendition = struct(ReservationRendition,
+        datetime: "Not a date",
+        name: "Mark Seemann",
+        email: "mark@ploeh.dk",
+        quantity: 4
+      )
+
+      actual = Validate.reservation rendition
+
+      expected = {:error, "Invalid Date"}
 
       assert expected == actual
     end
