@@ -21,4 +21,9 @@ defmodule Hungry.Gettext do
   See the [Gettext Docs](https://hexdocs.pm/gettext) for detailed usage.
   """
   use Gettext, otp_app: :hungry
+
+  @dialyzer [
+              {:nowarn_function, 'lngettext': 5},
+              {:nowarn_function, 'lngettext': 6},
+            ]
 end

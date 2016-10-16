@@ -5,7 +5,7 @@ defmodule Hungry.ReservationControllerTest do
     test "returns corrects result on success", %{conn: conn} do
       imp = fn -> :ok end
       reservation_rendition = %{
-        datetime: "2016-02-29T12:30:30.120+00:00",
+        datetime: "2016-02-29T12:30:30.120+00:00Z",
         name: "Mark Seemann",
         email: "mark@ploeh.dk",
         quantity: 4

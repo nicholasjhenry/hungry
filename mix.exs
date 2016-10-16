@@ -10,7 +10,8 @@ defmodule Hungry.Mixfile do
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      aliases: aliases(),
-     deps: deps()]
+     deps: deps(),
+     dialyzer: [plt_add_deps: :transitive]]
   end
 
   # Configuration for the OTP application.
@@ -39,6 +40,9 @@ defmodule Hungry.Mixfile do
       {:cowboy, "~> 1.0"},
       # Development
       {:mix_test_watch, "~> 0.2", only: :dev},
+      {:dialyxir, "~> 0.3.5", only: [:dev]},
+      # Production
+      {:timex_ecto, "~> 3.0.5"},
     ]
   end
 
