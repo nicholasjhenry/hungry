@@ -38,9 +38,10 @@ defmodule Hungry.Mixfile do
       {:postgrex, ">= 0.0.0"},
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
-      # Development
+      # Development and Testing
       {:mix_test_watch, "~> 0.2", only: :dev},
       {:dialyxir, "~> 0.3.5", only: [:dev]},
+      {:credo, "~> 0.4", only: [:dev, :test]},
       # Production
       {:timex_ecto, "~> 3.0.5"},
     ]
